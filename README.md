@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src='/images/JH FURNITURE_free-file (2).png' width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src='public\images\JH FURNITURE_free-file (2).png' width="400"></a></p>
 
 
 ## Project Web Programming - COMP6681001 - BE01
