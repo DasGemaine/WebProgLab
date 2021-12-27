@@ -81,7 +81,3 @@
     </div>
   </body>
 </html>
-
-<!-- container heeadr -->
-<!-- container content -->
-<!-- container footer -->

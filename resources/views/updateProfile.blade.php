@@ -10,7 +10,7 @@
                 <h1 class="h3 mb-3 fw-normal text-center">Update Profile</h1>
         
                 <div class="form-floating">
-                  <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Full Name">
+                  <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Full Name" autofocus required value="{{ old ('name', Auth()->user()->name)}}">
                   <label for="name">Full Name</label>
                   @error('name')
                       <div class="text-danger">{{ $message }} </div>  
@@ -18,7 +18,7 @@
                 </div>
         
                 <div class="form-floating">
-                  <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email">
+                  <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" autofocus required value="{{ old ('email', Auth()->user()->email)}}">
                   <label for="email">Email</label>
                   @error('email')
                       <div class="text-danger">{{ $message }} </div>
@@ -49,7 +49,7 @@
               <h1 class="h3 mb-3 fw-normal text-center">Update Profile</h1>
       
               <div class="form-floating">
-                <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Full Name">
+                <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Full Name" autofocus required value="{{ old ('name', Auth()->user()->name)}}">
                 <label for="name">Full Name</label>
                 @error('name')
                     <div class="text-danger">{{ $message }} </div>  
@@ -57,7 +57,7 @@
               </div>
       
               <div class="form-floating">
-                <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email">
+                <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" autofocus required value="{{ old ('name', Auth()->user()->email)}}">
                 <label for="email">Email</label>
                 @error('email')
                     <div class="text-danger">{{ $message }} </div>
@@ -73,7 +73,7 @@
               </div>
       
               <div class="form-floating">
-                <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address">
+                <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address" autofocus required value="{{ old ('name', Auth()->user()->address)}}">
                 <label for="address">Address</label>
                 @error('address')
                     <div class="text-danger">{{ $message }} </div>
@@ -87,16 +87,30 @@
                         Gender
                     </div> 
                   </div>
-                  <div class="col-3">
-                    <div class="form-group  @error('gender') is-invalid @enderror">
-                      <label><input name="gender" type="radio" value="M">M</label>
+                  @if (Auth()->user()->gender == 'M')
+                    <div class="col-3">
+                      <div class="form-group  @error('gender') is-invalid @enderror">
+                        <label><input name="gender" type="radio" value="M" checked>M</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-3">
-                    <div class="radio">
-                      <label><input name="gender" type="radio" value="F">F</label>
+                    <div class="col-3">
+                      <div class="radio">
+                        <label><input name="gender" type="radio" value="F">F</label>
+                      </div>
+                    </div>  
+                  @else    
+                    <div class="col-3">
+                      <div class="form-group  @error('gender') is-invalid @enderror">
+                        <label><input name="gender" type="radio" value="M">M</label>
+                      </div>
                     </div>
-                  </div>        
+                    <div class="col-3">
+                      <div class="radio">
+                        <label><input name="gender" type="radio" value="F" checked>F</label>
+                      </div>
+                    </div>  
+                  @endif
+                        
                 </div>
                 @error('gender')
                   <div class="text-danger">{{ $message }} </div>

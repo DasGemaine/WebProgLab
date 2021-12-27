@@ -62,7 +62,6 @@ class ItemController extends Controller
 
 
     public function deleteFurniture(Item $items){
-        // dd($items);
         Item::where('id', $items->id)
                 ->delete($items);
 
@@ -83,7 +82,6 @@ class ItemController extends Controller
     
 
     public function displayUpdate(Item $items){
-        // dd($types);
         $types = FurnitureType::all();
         
         return view('updateFurniture', [

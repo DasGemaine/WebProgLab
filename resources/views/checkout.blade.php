@@ -37,16 +37,6 @@
                 <div class="col align-self-center">
                     {{ ($cart['qty'])*($cart['price']) }}
                 </div>
-
-                {{-- <div class="col d-flex justify-content-center">
-                    <div class=" card-update m-3 d-flex justify-content-center">
-                        <a href="/add-to-cart/{{ $cart['itemID'] }}" class="btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> + </a>
-                    </div>
-
-                    <div class=" card-update m-3 d-flex justify-content-center">
-                        <a href="/remove-from-cart/{{ $cart['itemID'] }}" class="btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> - </a>
-                    </div>
-                </div> --}}
             </div>
         @endforeach
     @endif

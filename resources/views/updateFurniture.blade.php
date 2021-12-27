@@ -45,8 +45,6 @@
                             </select>
                         </div>
 
-
-
                         <div class="form-group">
                             <label for="image">Choose File</label>
                             <input type="file" class="form-control" name="image" id="image"/>
@@ -61,7 +59,4 @@
         </div>
     </div>
 </div> 
-
-
-
 @endsection

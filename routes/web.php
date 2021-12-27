@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Cart;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ItemController;
@@ -19,7 +18,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::GET('/', [ItemController::class, 'index'])->name('home');
+
 ROUTE::POST('/', [CartController::class, 'create']);
+
 Route::POST('/logout', [UserController::class, 'logout']);
 
 
@@ -35,6 +36,7 @@ Route::POST('/login', [UserController::class, 'login']);
 Route::GET('/register', function(){
     return view('register');
 })->middleware('guest');
+
 Route::POST('/register', [UserController::class, 'register']);
 
 
@@ -51,7 +53,6 @@ Route::POST('/profile/{users:name}/update', [UserController::class, 'update']);
 
 
 
-
 Route::GET('/view', [ItemController::class, 'find']);
 
 
@@ -59,7 +60,6 @@ Route::GET('/view', [ItemController::class, 'find']);
 Route::GET('/addFurniture', [ItemController::class, 'displayInsert'])->middleware('auth');
 
 Route::POST('/addFurniture', [ItemController::class, 'addFurniture'])->middleware('auth');
-
 
 Route::GET('/updateFurniture/{items:name}', [ItemController::class, 'displayUpdate'])->middleware('auth');
 
@@ -76,16 +76,16 @@ Route::GET('/detail/{items:name}', [ItemController::class, 'displayDetail']);
 
 Route::GET('/cart', [CartController::class, 'index'])->middleware('auth');
 
-
 Route::GET('/add-to-cart/{item:id}', [CartController::class, 'create'])->middleware('auth');
+
 Route::GET('/remove-from-cart/{item:id}', [CartController::class, 'remove_item'])->middleware('auth');
-// Route::GET('/store-to-cart', [CartController::class, 'store']);
 
 
 
 Route::GET('/checkout', function(){
     return view('checkout');
 })->middleware('auth');
+
 Route::POST('/checkout', [TransactionController::class, 'store'])->middleware('auth');
 
 

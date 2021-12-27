@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //
 
     public function register(Request $request){
         $userRegistration = $request->validate([
@@ -38,7 +37,6 @@ class UserController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            // Auth::login($credentials, $request->get('remember'));
          
             return redirect()->intended('/');
         }

@@ -69,7 +69,6 @@
                     
                     @endphp
                     <tr>
-                        {{-- {{dd($cart)}} --}}
                     <td class="text-center">{{ $cart['name'] }}</td>
                     <td class="text-center">Rp.{{ $cart['price'] }}</td>
                     <td class="text-center">{{ $cart['qty'] }}</td>
