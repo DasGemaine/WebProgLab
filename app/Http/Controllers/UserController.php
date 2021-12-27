@@ -37,18 +37,29 @@ class UserController extends Controller
             'password' => 'required',  
         ]);
 
-        $remember = $request->has('remember') ? true : false;
-
         $tokenexpired = 60;
 
-        if(Auth::attempt($credentials, $remember)){
-            $request->session()->regenerate();
-            Cookie::queue('email', $credentials['email'], $tokenexpired);
-            Cookie::queue('password', $credentials['password'], $tokenexpired);
-         
-            return redirect()->intended('/');
+        $remember = $request['remember'];
+
+        if($remember){
+            if(Auth::attempt($credentials, true)){
+                $request->session()->regenerate();
+                Cookie::queue('email', $credentials['email'], $tokenexpired);
+                Cookie::queue('password', $credentials['password'], $tokenexpired);
+             
+                return redirect()->intended('/');
+            }
+                return back()->with('loginError', 'login Failed!');
+        }else{
+            if(Auth::attempt($credentials)){
+                $request->session()->regenerate();
+                Cookie::queue('email', $credentials['email'], -$tokenexpired);
+                Cookie::queue('password', $credentials['password'], -$tokenexpired);
+             
+                return redirect()->intended('/');
+            }
+                return back()->with('loginError', 'login Failed!');
         }
-            return back()->with('loginError', 'login Failed!');
     }
 
     public function logout(Request $request){
