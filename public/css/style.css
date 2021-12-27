@@ -1,0 +1,126 @@
+html{
+    margin-bottom: 56px;
+}
+
+.form-signin{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#card_number{
+    border-radius: 25px;
+}
+
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-floating{
+    margin-top: 6px;
+}
+
+.btn-success{
+    border-radius: 25px;
+}
+
+.btn-danger{
+    border-radius: 25px;
+}
+
+.btn-primary{
+    border-radius: 25px;
+}
+
+.card{
+    border-color: #3e3f52;
+}
+
+.btn-size1{
+    border-radius: 25px;
+}
+
+.btn-warning{
+    border-radius: 25px;
+}
+
+.btn-dark{
+    border-radius: 25px;
+}
+
+.card-button{
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.btn-cart{
+    font-size: large;
+    width: 70px;
+    height: 40px;
+}
+
+.btn-checkout{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.btn-profile{
+    border-radius: 5px;
+}
+
+.bg-image{
+    /* height: 100vh;  */
+    background-color: rgb(184, 186, 199);
+}
+
+.field-name{
+    text-align: center;
+}
+
+.detail-value{
+    text-align: left;
+}
+/* 
+input[type=radio] {
+    float: left;
+}
+label {
+    margin-left: 30px;
+    display: block;
+} */
+
+
+footer {
+    /* background-color: orange; */
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    /* width:100%;
+    height:100%; */
+    /* height: 100px;
+    width: 100%; */
+    overflow: hidden;
+}
+
+content{
+    height: auto; 
+    background-color: rgb(184, 186, 199);
+}
