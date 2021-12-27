@@ -16,49 +16,47 @@
         @php
             $total = 0
         @endphp
-        @if (session('cart'))
-            @foreach (session('cart') as $cart)
-                @php
-                    $total = $total + ($cart['qty'])*($cart['price']) 
-                @endphp
+        @foreach (session('cart') as $cart)
+            @php
+                $total = $total + ($cart['qty'])*($cart['price']) 
+            @endphp
 
-                <div class="row text-center p-4 border border-4 border-dark m-2">
-                    <div class="col align-self-center">
-                        <div class="cart-image">
-                            <img src = "{{ asset('storage/'. $cart['image']) }}", width="100px", height="95px">
-                        </div>
-                    </div>
-
-                    <div class="col align-self-center">
-                        <div class="cart-user">
-                            {{ $cart['name'] }}
-                        </div>
-                    </div>
-
-                    <div class="col align-self-center">
-                        Rp.{{ $cart['price'] }}
-                    </div>
-
-                    <div class="col align-self-center">
-                        {{ $cart['qty'] }} Item(s)
-                    </div>
-
-                    <div class="col align-self-center">
-                        {{ ($cart['qty'])*($cart['price']) }}
-                    </div>
-
-                    <div class="col d-flex justify-content-center">
-                        <div class=" card-update m-3 d-flex justify-content-center">
-                            <a href="/add-to-cart/{{ $cart['itemID'] }}" class="btn btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> + </a>
-                        </div>
-
-                        <div class=" card-update m-3 d-flex justify-content-center">
-                            <a href="/remove-from-cart/{{ $cart['itemID'] }}" class="btn btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> - </a>
-                        </div>
+            <div class="row text-center p-4 border border-4 border-dark m-2">
+                <div class="col align-self-center">
+                    <div class="cart-image">
+                        <img src = "{{ asset('storage/'. $cart['image']) }}", width="100px", height="95px">
                     </div>
                 </div>
-            @endforeach
-        @endif
+
+                <div class="col align-self-center">
+                    <div class="cart-user">
+                        {{ $cart['name'] }}
+                    </div>
+                </div>
+
+                <div class="col align-self-center">
+                    Rp.{{ $cart['price'] }}
+                </div>
+
+                <div class="col align-self-center">
+                    {{ $cart['qty'] }} Item(s)
+                </div>
+
+                <div class="col align-self-center">
+                    {{ ($cart['qty'])*($cart['price']) }}
+                </div>
+
+                <div class="col d-flex justify-content-center">
+                    <div class=" card-update m-3 d-flex justify-content-center">
+                        <a href="/add-to-cart/{{ $cart['itemID'] }}" class="btn btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> + </a>
+                    </div>
+
+                    <div class=" card-update m-3 d-flex justify-content-center">
+                        <a href="/remove-from-cart/{{ $cart['itemID'] }}" class="btn btn-cart btn-xl btn-dark" role="button" aria-pressed="true"> - </a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
     <div class="text-center mt-3">
         <h4>Total : Rp.{{$total}}</h4>
