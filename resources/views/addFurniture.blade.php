@@ -37,14 +37,14 @@
                         <div class="form-group">
                             <label for="furniture_type">Furniture Type</label>
                             <select class="form-control @error('furniture_type') is-invalid @enderror" id="furniture_type" name="furniture_type">
+                                <option selected>Choose...</option>
                                 @foreach ($types as $type)
                                     <option>{{$type->type}}</option>
-                                    {{-- <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option> --}}
                                 @endforeach
                             </select>
+                            @error('furniture_type')
+                                <div class="text-danger">{{ $message }} </div>
+                            @enderror
                         </div>
 
                         <div class="form-group">

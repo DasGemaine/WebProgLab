@@ -26,7 +26,7 @@
                         
                         <div class="form-group">
                             <label for="color">Furniture Color</label>
-                            <input type="text" class="form-control @error('color') is-invalid @enderror" name="color" id="color" autofocus required value="{{ old ('color') }}">
+                            <input type="text" class="form-control @error('color') is-invalid @enderror" name="color" id="color" autofocus required value="{{ old ('color', $items->color) }}">
                             @error('color')
                                 <div class="text-danger">{{ $message }} </div>
                             @enderror
@@ -36,11 +36,11 @@
                             <label for="furniture_type">Furniture Type</label>
                             <select class="form-control @error('furniture_type') is-invalid @enderror" id="furniture_type" name="furniture_type">
                                 @foreach ($types as $type)
-                                    <option>{{$type->type}}</option>
-                                    {{-- <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option> --}}
+                                    @if ($type->type == $items->furniture_type)
+                                        <option selected>{{$type->type}}</option>
+                                    @else
+                                        <option>{{$type->type}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

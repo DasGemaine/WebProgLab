@@ -24,46 +24,43 @@
                     <a class="nav-link active text-white" href="/view">View</a>
                   </li>
                     @auth
-                        @if (Auth::user()->role == 'Admin')
-                            <li class="nav-item me-5">
-                                <a class="nav-link active text-white" href="/profile">Profile</a>
-                            </li>
-                            <li class="nav-item me-5">
-                                <a class="nav-link active text-white" href="/addFurniture">Add Furniture</a>
-                            </li>
-                            <li>
-                                <form action="/logout" method="POST">
-                                @csrf
-                                    <div class=" card-update">
-                                        <button type="submit" class="btn btn-xl btn-danger">Log out</button> 
-                                    </div>
-                                </form>
-                            </li>
-                        @else
-                            <li class="nav-item me-5">
-                                <a class="nav-link active text-white" href="/profile">Profile</a>
-                            </li>
-                            <li class="nav-item me-5">
-                                <a class="nav-link active text-white" href="/cart">Cart</a>
-                            </li>
-                            <li>
-                                <form action="/logout" method="POST">
-                                @csrf
-                                    <div class=" card-update">
-                                        <button type="submit" class="btn btn-danger">Log out</button> 
-                                    </div>
-                                </form>
-                            </li>
-                        @endif
+                      @if (Auth::user()->role == 'Admin')
+                          <li class="nav-item me-5">
+                              <a class="nav-link active text-white" href="/profile">Profile</a>
+                          </li>
+                          <li class="nav-item me-5">
+                              <a class="nav-link active text-white" href="/addFurniture">Add Furniture</a>
+                          </li>
+                          <li>
+                              <form action="/logout" method="POST">
+                              @csrf
+                                  <div class=" card-update">
+                                      <button type="submit" class="btn btn-xl btn-danger">Log out</button> 
+                                  </div>
+                              </form>
+                          </li>
+                      @else
+                          <li class="nav-item me-5">
+                              <a class="nav-link active text-white" href="/profile">Profile</a>
+                          </li>
+                          <li class="nav-item me-5">
+                              <a class="nav-link active text-white" href="/cart">Cart</a>
+                          </li>
+                          <li>
+                              <form action="/logout" method="POST">
+                              @csrf
+                                  <div class=" card-update">
+                                      <button type="submit" class="btn btn-danger">Log out</button> 
+                                  </div>
+                              </form>
+                          </li>
+                      @endif
                     @else
                         <li class="nav-item me-5">
                             <a class="nav-link active text-white" href="/login">Login</a>
                         </li>
                         <li class="nav-item me-5">
                             <a class="nav-link active text-white" href="/register">Register</a>
-                        </li>
-                        <li class="nav-item me-5">
-                            <a class="nav-link active text-white" href="/table">table</a>
                         </li>
                     @endauth
                 </ul>

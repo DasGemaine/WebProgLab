@@ -21,7 +21,7 @@ class ItemController extends Controller
         $furniture = $request->validate([
             'name' => 'required|max:15',
             'price' => 'required|numeric|between:5000,10000000',
-            'furniture_type' => 'required',
+            'furniture_type' => 'required|in:Bedside Table,Rak,Lemari Pakaian,Meja Tamu,Kursi,Sofa',
             'color' => 'required',
             'image' => 'required|file|mimes:jpg,png,jpeg',
         ]);
