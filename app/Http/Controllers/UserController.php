@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
+
 
 class UserController extends Controller
 {
@@ -35,8 +37,14 @@ class UserController extends Controller
             'password' => 'required',  
         ]);
 
-        if(Auth::attempt($credentials)){
+        $remember = $request->has('remember') ? true : false;
+
+        $tokenexpired = 60;
+
+        if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
+            Cookie::queue('email', $credentials['email'], $tokenexpired);
+            Cookie::queue('password', $credentials['password'], $tokenexpired);
          
             return redirect()->intended('/');
         }
