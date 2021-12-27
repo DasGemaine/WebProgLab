@@ -9,7 +9,7 @@
             </div>
             @endif
 
-            @if (session()->has('furniture/success_update'))
+            @if (session()->has('item/success_update'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('furniture/success_update') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

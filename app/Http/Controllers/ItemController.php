@@ -57,7 +57,7 @@ class ItemController extends Controller
         Item::where('id', $items->id)
                 ->update($update);
         
-        return redirect('/')->with('items/success_update', 'Furniture has been updated');
+        return redirect('/')->with('item/success_update', 'Furniture has been updated');
     }
 
 

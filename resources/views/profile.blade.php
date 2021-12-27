@@ -2,6 +2,13 @@
 @section('content')
 @auth
     @if (Auth::user()->role == 'Admin')
+        @if (session()->has('profile/success_update'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('profile/success_update') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="d-flex justify-content-center mt-3">
             <h1 style="color:rgb(35, 37, 35)">{{Auth::user()->name}}'s Profile</h1>
         </div>
@@ -67,6 +74,13 @@
             </div>
         </div>
     @else
+        @if (session()->has('profile/success_update'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('profile/success_update') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="d-flex justify-content-center mt-3">
             <h1 style="color : rgb(35, 37, 35)">{{Auth::user()->name}}'s Profile</h1>
         </div>
@@ -160,5 +174,7 @@
         </div>        
     @endif
 @endauth
+
+
     
 @endsection

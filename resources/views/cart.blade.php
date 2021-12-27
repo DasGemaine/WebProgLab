@@ -17,7 +17,7 @@
             $total = 0
         @endphp
         @if (session('cart'))
-            @foreach (session('cart') as $id => $cart)
+            @foreach (session('cart') as $cart)
                 @php
                     $total = $total + ($cart['qty'])*($cart['price']) 
                 @endphp

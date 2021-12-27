@@ -16,8 +16,8 @@ class UserController extends Controller
         $userRegistration = $request->validate([
             'name' => 'required',
             'email' => 'required|email:dns',
-            'password' => 'required|min:5|max:20',
-            'address' => 'required|min:5|max:95',
+            'password' => 'required|between:5,20',
+            'address' => 'required|between:5,95',
             'gender' => 'required|in:M,F'    
         ]);
         
@@ -77,7 +77,7 @@ class UserController extends Controller
             $credentials = $request->validate([
                 'name' => 'required|max:15',
                 'email' => 'required|email:dns',
-                'password' => 'required',  
+                'password' => 'required|between:5,20',  
                 'address',
                 'gender'
             ]);
@@ -90,14 +90,14 @@ class UserController extends Controller
             User::where('id', Auth::user()->id)
                     ->update($credentials);
             
-            return redirect('/')->with('profile/success_update', 'Profile has been updated!');
+            return redirect('/profile')->with('profile/success_update', 'Profile has been updated!');
 
         }else{
             $credentials = $request->validate([
                 'name' => 'required|max:15',
                 'email' => 'required|email:dns',
-                'password' => 'required|min:5|max:20',  
-                'address' => 'required|min:5|max:20',
+                'password' => 'required|between:5,20',  
+                'address' => 'required|between:5,95',
                 'gender' => 'required'
             ]);
 
@@ -106,7 +106,7 @@ class UserController extends Controller
             User::where('id', Auth::user()->id)
                     ->update($credentials);
             
-            return redirect('/')->with('profile/success_update', 'Profile has been updated!');
+            return redirect('/profile')->with('profile/success_update', 'Profile has been updated!');
         }
         
 
