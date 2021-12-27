@@ -8,11 +8,14 @@
 
 
 ## User
-- *Admin*
+- **Admin**
+
 Tidak bisa membuat user dengan role *Admin* dari page Register, data Admin hanya ada di didalam file UserSeeder.php yang berada di folder seeders. Jadi harus di Seeding dulu
 
-- *Member*
+- **Member**
+
 Semua user yang registrasi sudah auto menjadi *Member* tetapi tidak bisa menjadi *Admin*
 
-- *Guest*
+- **Guest**
+
 Semua user yang tidak Login
