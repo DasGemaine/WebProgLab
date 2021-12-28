@@ -21,7 +21,7 @@ Route::GET('/', [ItemController::class, 'index'])->name('home');
 
 ROUTE::POST('/', [CartController::class, 'create']);
 
-Route::POST('/logout', [UserController::class, 'logout']);
+Route::POST('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 
 
@@ -90,7 +90,7 @@ Route::POST('/checkout', [TransactionController::class, 'store'])->middleware('a
 
 
 
-Route::GET('/transaction', [TransactionController::class, 'index']);
+Route::GET('/transaction', [TransactionController::class, 'index'])->middleware('auth');
 
 
 
