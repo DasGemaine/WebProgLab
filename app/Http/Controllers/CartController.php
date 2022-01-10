@@ -42,9 +42,6 @@ class CartController extends Controller
 
         $cart = session()->get('cart', []);
 
-        
-        // dd($cart);
-
 
         if(isset($cart[$id])) {
             $cart[$id]['qty']--;
@@ -54,12 +51,6 @@ class CartController extends Controller
         if($cart[$id]['qty'] <= 0){
             unset($cart[$id]);
         }
-
-        // if(!array_values($cart)[0]){
-        //     session()->forget('cart');
-        // }else{
-        //     session()->put('cart', $cart);
-        // }
 
         if(empty($cart)){
             session()->forget('cart');

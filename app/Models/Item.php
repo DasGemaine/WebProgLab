@@ -23,11 +23,6 @@ class Item extends Model
         'deleted_at'
     ];
 
-    public function cart(){
-        return $this->hasMany(Cart::class);
-    }
-
-
     public function scopeSearch($query){
         if(request('search')){
             return $query -> where('name', 'like', '%'.request('search'). '%')
